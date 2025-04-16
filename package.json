@@ -1,0 +1,31 @@
+{
+  "name": "@respond-run/router",
+  "version": "0.1.0",
+  "description": "Filesystem-based router for Vite-powered Cloudflare Workers",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "cloudflare",
+    "vite",
+    "router",
+    "workers",
+    "filesystem-routing"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

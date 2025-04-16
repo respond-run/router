@@ -1,6 +1,6 @@
 {
   "name": "@respond-run/router",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Filesystem-based router for Vite-powered Cloudflare Workers",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

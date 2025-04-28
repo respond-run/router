@@ -1,7 +1,8 @@
 export type Handler<TEnv = unknown, TCtx = DefaultExecutionContext> = (
-  request: Request & { params: Record<string, string> },
+  request: Request,
   env: TEnv,
-  ctx: TCtx
+  ctx: TCtx,
+  params: Record<string, string>
 ) => Promise<Response>;
 
 export type RouteModule<TEnv = unknown, TCtx = DefaultExecutionContext> = {
@@ -69,14 +70,7 @@ export function createRouter<TEnv = unknown, TCtx = DefaultExecutionContext>(
         return new Response('Method Not Allowed', { status: 405 });
       }
 
-      const reqWithParams = new Proxy(request, {
-        get(target, prop) {
-          if (prop === 'params') return params;
-          return (target as any)[prop];
-        }
-      });
-
-      return handler(reqWithParams as Request & { params: Record<string, string> }, env, ctx);
+      return handler(request, env, ctx, params);
     }
 
     return new Response('Not Found', { status: 404 });
